@@ -110,10 +110,30 @@ a:hover {
 
 .bg-glass{
   background: white;
-  background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
-  border-radius: 2rem;backdrop-filter: blur(2rem);
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.1));
+  border-radius: 1rem;
+  backdrop-filter: blur(1rem);
 
 }
+
+.glass {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  color: #333;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  max-width: 50%;
+  padding: 1rem 2rem;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .glass {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
 
 .bg-green{
   background: linear-gradient(to right top, #65dfc9,  #6cdbeb);
@@ -162,6 +182,7 @@ a:hover {
   font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
+  color: #371BB1;
 }
 
 .subtitle-a {
