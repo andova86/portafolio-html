@@ -93,7 +93,11 @@ jQuery(document).ready(function ($) {
         var action = $(this).attr('action');
         if (!action) {
 
-
+           var name = $('#name').val();
+           var email = $('#email').val();
+           var subject = $('#subject').val();
+            var message = $('#message').val();
+           console.log(name)
             var da = "Andy Luis"
             action = 'contactform/contactform.php';
             var data = {
@@ -103,8 +107,10 @@ jQuery(document).ready(function ($) {
                 template_params: {
                     'username': 'James',
                     'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...',
-                    'message': 'Prueba',
-                    'from_name': da
+                    'message': subject + ". " + message,
+                    'from_name': email,
+                    'to_name': name,
+
                 }
             };
 
@@ -113,15 +119,15 @@ jQuery(document).ready(function ($) {
                 data: JSON.stringify(data),
                 contentType: 'application/json'
             }).done(function () {
-                  $("#sendmessage").addClass("show");
-                    $("#errormessage").removeClass("show");
-                    $('.contactForm').find("input, textarea").val("");
+                $("#sendmessage").addClass("show");
+                $("#errormessage").removeClass("show");
+                $('.contactForm').find("input, textarea").val("");
 
             }).fail(function (error) {
                 alert('Oops... ' + JSON.stringify(error));
             });
         }
-        $.ajax({
+       /* $.ajax({
             type: "POST",
             url: action,
             data: str,
@@ -138,7 +144,7 @@ jQuery(document).ready(function ($) {
                 }
 
             }
-        });
+        });*/
         return false;
     });
 
